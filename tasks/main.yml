@@ -1,0 +1,29 @@
+---
+# tasks file for java8
+  - name: Download Java
+    command: "wget {{java}} -P {{download_folder}}"
+  - name: Archive Java
+    command: "{{ item }}"
+    with_items:
+            #- "mkdir {{java_folder}}"
+            - "tar -xzf {{java_archive}} -C {{java_folder}}"  
+  - name: check java_home
+    debug:
+            msg: "{{java_home}}"
+  - name: add JAVA_HOME
+    blockinfile:
+            path: "{{profile_path}}"
+            block: |
+                   JAVA_HOME={{java_home_path}}
+                   PATH=$PATH:$JAVA_HOME:{{java_jre_path}}
+                   JRE_HOME={{java_jre_path}}
+                   export JRE_HOME
+                   export JAVA_HOME
+                   export PATH
+    when: java_home == ""
+  - name: run source etc/profile
+    shell: "source /etc/profile"
+    args:
+            executable: /bin/bash
+
+

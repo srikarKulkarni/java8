@@ -1,0 +1,10 @@
+---
+# vars file for java14
+#download_url: https://download.java.net/openjdk/jdk8u41/ri/openjdk-8u41-b04-linux-x64-14_jan_2020.tar.gz
+      download_folder: /tmp
+      java_archive: "{{download_folder}}/openjdk-8u41-b04-linux-x64-14_jan_2020.tar.gz"
+      java_folder: "/usr/java"
+      profile_path: "/etc/profile"
+      java_home: "{{ lookup('env','JAVA_HOME') }}"
+      #java_home_path: "{{java_folder}}/java-se-8u41-ri/bin"
+      java_jre_path: "{{java_folder}}/java-se-8u41-ri/jre/bin"
