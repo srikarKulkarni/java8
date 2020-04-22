@@ -6,5 +6,5 @@
       java_folder: "/usr/java"
       profile_path: "/etc/profile"
       java_home: "{{ lookup('env','JAVA_HOME') }}"
-      #java_home_path: "{{java_folder}}/java-se-8u41-ri/bin"
+      
       java_jre_path: "{{java_folder}}/java-se-8u41-ri/jre/bin"
